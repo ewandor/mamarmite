@@ -10,10 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170213154224) do
+ActiveRecord::Schema.define(version: 20170213170711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachinary_files", force: :cascade do |t|
+    t.string   "attachinariable_type"
+    t.integer  "attachinariable_id"
+    t.string   "scope"
+    t.string   "public_id"
+    t.string   "version"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "format"
+    t.string   "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "cook_id"
+    t.datetime "starts_at"
+    t.integer  "foodies_number"
+    t.boolean  "accepted",       default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["cook_id"], name: "index_bookings_on_cook_id", using: :btree
+    t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
+  end
+
+  create_table "cooks", force: :cascade do |t|
+    t.string   "speciality"
+    t.string   "address"
+    t.string   "home_style"
+    t.integer  "age"
+    t.integer  "capacity"
+    t.string   "nickname"
+    t.string   "motto"
+    t.string   "cooker_picture"
+    t.string   "photos_home"
+    t.integer  "price"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["user_id"], name: "index_cooks_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -32,4 +76,7 @@ ActiveRecord::Schema.define(version: 20170213154224) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "bookings", "cooks"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "cooks", "users"
 end
