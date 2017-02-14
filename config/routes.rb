@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-
-  resources :cooks, only: [:index, :show, :new, :create, :edit, :update] do 
+  resources :cooks, only: [:index, :show, :new, :create, :edit, :update] do
     resources :bookings, only: [:new, :create, :edit, :update]
   end
 
