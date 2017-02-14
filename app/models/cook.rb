@@ -3,7 +3,7 @@ class Cook < ApplicationRecord
   belongs_to :user
   has_attachment :photo
 
-  validates :specialty, presence: true
+  validates :speciality, presence: true
   validates :home_style, presence: true
   validates :age, presence: true
   validates :capacity, presence: true
