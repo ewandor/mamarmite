@@ -1,0 +1,25 @@
+video { 
+  position: absolute;
+  top: 67%;
+  left: 50%;
+  zoom: 1%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  filter: blur(1em);
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+/*  background: url("http://res.cloudinary.com/dyempstib/image/upload/v1486936868/Capture_d_e%CC%81cran_2017-02-12_a%CC%80_22.59.40_ruuzzu.png") no-repeat;
+*/  background-size: cover;
+  transition: 1s opacity;
+}
+.stopfade { 
+ opacity: .5;
+}
+
+
+/*@media screen and (max-device-width: 800px) {
+  html { background: url("http://res.cloudinary.com/dyempstib/image/upload/v1486936868/Capture_d_e%CC%81cran_2017-02-12_a%CC%80_22.59.40_ruuzzu.png") #000 no-repeat center center fixed; }
+  #bgvid { display: none; }
+}*/
