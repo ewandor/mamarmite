@@ -9,12 +9,39 @@
     <div class="side-bar-header">
       <div>
         <span>
-          Sélectionner la recette que vous souhaitez apprendre.
+          Choisissez votre recette
         </span>
       </div>
-      <div> <%= @cooks.count %> marmittes à <%= @cooks %> </div>
+      <div> <%= @cooks.count %> marmittes à Paris </div>
+    </div>
+    <div class="wrapper-cards">
+
+    <div class="container">
+      <div class="row">
+        <% @cooks.each do |cook| %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <!-- insert <div class="card"> -->
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('assets/1.jpg');">
+                <div class="card-category"><%= cook.category %></div>
+                <div class="card-description">
+                  <h2> <%= cook.name %></h2>
+                    <ul class="list-inline">
+                      <li> <%= cook.address %> </li>
+                      <li> <%= cook.phone_number %> </li>
+                      <li> <%= cook.category%> </li>
+                    </ul>
+                </div>
+                <%= image_tag "user.jpg", class: "card-user avatar" %>
+                <%= link_to "", cook_path(cook), class: "card-link" %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+
     </div>
   </div>
+</div>
   <!-- la map -->
-  <div></div>
+  <div> </div>
 </div>
