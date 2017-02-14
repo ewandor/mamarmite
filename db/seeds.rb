@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'nokogiri'
-require 'json'
-require 'open-uri'
+# require 'nokogiri'
+# require 'json'
+# require 'open-uri'
 
 # url_starters = "http://www.delice-et-cuisine.com/recettes-cuisine/entrees/"
 

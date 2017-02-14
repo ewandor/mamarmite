@@ -2,11 +2,3 @@
 <h1><%= @cook.nickname %> , <%= @cook.age %></h1>
 
 <h2>Ingredients:</h2>
-
-<% @cocktail.ingredients.each do |ingredient| %>
-<%= ingredient.name %>
-<% end %>
-
-<% @cocktail.doses.each do |dose| %>
-<%= dose.description %>
-<% end %>
