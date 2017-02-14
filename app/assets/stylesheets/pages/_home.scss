@@ -53,6 +53,11 @@
  .tags_btn {
  	border-radius: 50px;
  	margin-right: 10px;
+ 	border: 1px solid #00D6F5;
+ }
+
+ .tags_btn:hover {
+ 	border: 1px solid #00D6F5;
  }
 
  .search_btn {
@@ -80,4 +85,18 @@
  	color: white;
  	text-decoration: none;
  	border: 3px solid black;
+ }
+
+ .card_home {
+ 	background-color: white;
+ 	border-radius: 10px;
+ 	padding: 20px;
+ 	border: 3px solid #00D6F5;
+ }
+
+ .row_cards {
+ 	display: flex;
+ 	justify-content: space-between;
+ 	text-align: center;
+ 	margin-top: 3em;
  }
