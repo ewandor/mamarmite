@@ -1,19 +1,22 @@
-<img src=" <%= @cook.photo_cooker %>" alt="cooker picture">
-<h1><%= @cook.nickname %> , <%= @cook.age %> ans </h1>
-<h2> Speciality : <%= @cook.speciality %></h2>
-<h2> Motto : <%= @cook.motto %></h2>
+
+<div class="cover">
+  <div class="user">
 
 
-<h2>Ingredients:</h2>
-
-<div>
-  <% @cook.photos_recipes.each do |photo| %>
+  </div>
+  <div class="location">
+    <% @cook.photos_recipes.each do |photo| %>
       <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
-  <% end %>
+    <% end %>
+    <% @cook.photos_location.each do |photo| %>
+      <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+     <% end %>
+  </div>
 </div>
+<div class="summary">
+<h1> Your cooker : </h1>
+<h2><%= @cook.nickname %> , <%= @cook.age %></h2>
+</div>
+<div class="details">
 
-<div>
-  <% @cook.photos_location.each do |photo| %>
-      <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
-  <% end %>
 </div>
