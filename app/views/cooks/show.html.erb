@@ -1,10 +1,11 @@
 <div class="cover">
-  <div class="speciality">
-      <% @cook.photos_recipes.each do |photo| %>
-          <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
-      <% end %>
+  <div class="user">
+
   </div>
   <div class="location">
+    <% @cook.photos_recipes.each do |photo| %>
+      <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+    <% end %>
     <% @cook.photos_location.each do |photo| %>
       <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
      <% end %>

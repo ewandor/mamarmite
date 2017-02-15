@@ -75,6 +75,9 @@
 <row name="photos_location" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="photo_cooker" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -118,9 +121,6 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="password" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="photo_profile" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
