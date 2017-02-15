@@ -1,2 +1,14 @@
 <h1>Cooks#new</h1>
 <p>Find me in app/views/cooks/new.html.erb</p>
+
+<%= simple_form_for @cook do |f| %>
+  <%= f.input :speciality %>
+  <%= f.input :nickname %>
+  <%= f.input :price %>
+  <%= f.input :photos_recipes, as: :attachinary %>
+  <%= f.input :photos_location, as: :attachinary %>
+  <%= f.submit "add a cook", class: "btn btn-primary" %>
+<% end %>
+
+
+
