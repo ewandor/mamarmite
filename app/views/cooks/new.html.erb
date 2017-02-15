@@ -5,10 +5,13 @@
   <%= f.input :speciality %>
   <%= f.input :nickname %>
   <%= f.input :price %>
+   <%= f.input :address %>
   <%= f.input :photos_recipes, as: :attachinary %>
   <%= f.input :photos_location, as: :attachinary %>
   <%= f.submit "add a cook", class: "btn btn-primary" %>
 <% end %>
 
 
-
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;&key=#{ENV['GOOGLE_API_BROWSER_KEY']}"></script>
+<% end %>
