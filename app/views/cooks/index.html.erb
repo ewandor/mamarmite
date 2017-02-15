@@ -15,7 +15,8 @@
       <div class="col-xs-12 col-sm-7">
       <% @cooks.each do |cook| %>
         <div class="col-xs-12 col-sm-6">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cook.photos_recipes.sample %>');">
+
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cook.photos_recipes.first.path %>');">
             <div class="card-category"><%= cook.speciality %></div>
             <div class="card-description">
               <h2>Chez <%= cook.nickname %></h2>
