@@ -4,4 +4,16 @@
 <h2> Motto : <%= @cook.motto %></h2>
 
 
-<!-- <h2> class @cook.photo_show </h2> -->
+<h2>Ingredients:</h2>
+
+<div>
+  <% @cook.photos_recipes.each do |photo| %>
+      <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+  <% end %>
+</div>
+
+<div>
+  <% @cook.photos_location.each do |photo| %>
+      <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+  <% end %>
+</div>
