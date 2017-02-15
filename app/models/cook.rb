@@ -1,5 +1,7 @@
 class Cook < ApplicationRecord
-  has_many :bookings
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+  has_many :bookings, dependent: :destroy
   belongs_to :user
   has_attachment :photo_cooker
   has_attachments :photos_recipes, maximum: 5

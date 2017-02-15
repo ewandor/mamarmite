@@ -1,8 +1,7 @@
 
 <div class="cover">
   <div class="user">
-
-
+    <%= cl_image_tag(@cook.photo_cooker.path, width: 880, height: 1320, crop: :fill) %>
   </div>
   <div class="location">
     <% @cook.photos_recipes.each do |photo| %>
@@ -13,6 +12,7 @@
      <% end %>
   </div>
 </div>
+
 <div class="summary">
 <h1> Your cooker : </h1>
 <h2><%= @cook.nickname %> , <%= @cook.age %></h2>
