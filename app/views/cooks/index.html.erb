@@ -15,13 +15,13 @@
       <% @cooks.each do |cook| %>
       <div class="col-xs-12 col-sm-6">
 
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cook.recipes_photo.first.path %>');">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cook.recipe_photos.first.path %>');">
           <div class="card-category"><%= cook.speciality %></div>
           <div class="card-description">
             <h2>Chez <%= cook.nickname %></h2>
             <p><%= cook.motto %></p>
           </div>
-          <%= image_tag current_user.facebook_picture_url, class: 'card-user avatar' %>
+          <%= cl_image_tag cook.cooker_photo.path, class: 'card-user avatar' %>
           <%= link_to "", cook_path(cook), class: 'card-link' %>
         </div>
       </div>
