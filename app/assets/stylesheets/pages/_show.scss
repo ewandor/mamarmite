@@ -1,3 +1,14 @@
 .image_pic_show {
 	height: 80vh;
 }
+
+.card-cooker {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card-cooker-id {
+  margin-left: 15px;
+  padding: 15px;
+}

@@ -1,22 +1,62 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="image_pic_show col-xs-4">
-        <%= cl_image_tag(@cook.cooker_photo.path, crop: :fill, class: 'image_pic_show') %>
-      </div>
-      <div class="summary col-xs-8">
-        <h2> Your cooker : </h2>
-        <h3><%= @cook.nickname %> , <%= @cook.age %></h3>
-        <h4>Speciality : <b><%= @cook.speciality %></b></h4>
-        <h4>Home style: <b><%= @cook.home_style %></b></h4>
-        <h4>Kitchen capacity: <b><%= @cook.capacity %></b></h4>
-        <h4>My motto: <b><%= @cook.motto %></b></h4>
-        <h4>Price: <b><%= @cook.price %></b></h4>
-        <h4>Address: <b><%= @cook.address %></b></h4>
-      </div>
-    </div>    
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),
+url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')">
+  <div class="card-cooker">
+    <div class="card-cooker-img">
+      <%= cl_image_tag(@cook.cooker_photo.path, crop: :fill, class: 'image_pic_show') %>
+    </div>
+    <div class="card-cooker-id">
+      <h2> Your cooker : </h2>
+      <h3><%= @cook.nickname %> , <%= @cook.age %></h3>
+      <h4>Speciality : <b><%= @cook.speciality %></b></h4>
+      <h4>Home style: <b><%= @cook.home_style %></b></h4>
+      <h4>Kitchen capacity: <b><%= @cook.capacity %></b></h4>
+      <h4>My motto: <b><%= @cook.motto %></b></h4>
+      <h4>Price: <b><%= @cook.price %> Euros</b></h4>
+      <h4>Address: <b><%= @cook.address %></b></h4>
+    </div>
   </div>
 </div>
+
+
+
+
+<!--     <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <%= cl_image_tag(@cook.cooker_photo.path, crop: :fill, class: 'image_pic_show') %>
+        </div>
+        <div class="col-xs-6">
+          <div class="card-cooker-desc text-center">
+            <h2> Your cooker : </h2>
+            <h3><%= @cook.nickname %> , <%= @cook.age %></h3>
+            <h4>Speciality : <b><%= @cook.speciality %></b></h4>
+            <h4>Home style: <b><%= @cook.home_style %></b></h4>
+            <h4>Kitchen capacity: <b><%= @cook.capacity %></b></h4>
+            <h4>My motto: <b><%= @cook.motto %></b></h4>
+            <h4>Price: <b><%= @cook.price %> Euros</b></h4>
+            <h4>Address: <b><%= @cook.address %></b></h4>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+
+
+<div class="summary">
+</div>
+<div class="details">
+</div>
+<div class="reviews">
+</div>
+<div class="map-show">
+</div>
+<div class="other-cooks">
+</div>
+
+
+
+
 
 <div class="wrapper">
   <div class="container">
@@ -30,7 +70,7 @@
         <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
         <% end %>
         </div>
-        </div>      
+        </div>
     </div>
   </div>
 </div>
