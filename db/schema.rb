@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20170215131808) do
     t.string   "photo_cooker"
     t.float    "latitude"
     t.float    "longitude"
+
     t.index ["user_id"], name: "index_cooks_on_user_id", using: :btree
   end
 
