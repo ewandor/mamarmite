@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170215150640) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 20170215150640) do
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
+
     t.index ["user_id"], name: "index_cooks_on_user_id", using: :btree
   end
 
