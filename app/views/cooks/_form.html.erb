@@ -1,0 +1,8 @@
+<%= simple_form_for @cook do |f| %>
+  <%= f.input :speciality %>
+  <%= f.input :nickname %>
+  <%= f.input :price %>
+  <%= f.input :photos_recipes, as: :attachinary %>
+  <%= f.input :photos_location, as: :attachinary %>
+  <%= f.submit "add a cook", class: "btn btn-primary" %>
+<% end %>
