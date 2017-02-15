@@ -10,27 +10,25 @@
 
 
 <div class="wrapper_index">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-7">
+  <div class="row">
+  <div class="col-xs-12 col-sm-7 marge_index">
       <% @cooks.each do |cook| %>
-        <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-6">
 
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cook.photos_recipes.first.path %>');">
-            <div class="card-category"><%= cook.speciality %></div>
-            <div class="card-description">
-              <h2>Chez <%= cook.nickname %></h2>
-              <p><%= cook.motto %></p>
-            </div>
-            <%= image_tag current_user.facebook_picture_url, class: 'card-user avatar' %>
-            <%= link_to "", cook_path(cook), class: 'card-link' %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cook.recipes_photo.first.path %>');">
+          <div class="card-category"><%= cook.speciality %></div>
+          <div class="card-description">
+            <h2>Chez <%= cook.nickname %></h2>
+            <p><%= cook.motto %></p>
           </div>
+          <%= image_tag current_user.facebook_picture_url, class: 'card-user avatar' %>
+          <%= link_to "", cook_path(cook), class: 'card-link' %>
         </div>
-        <% end %>
       </div>
-      <div class="col-xs-12 col-sm-5">
-        <div id="map" style="width: 100%; height: 600px;"></div>
-      </div>
+      <% end %>
+    </div>
+    <div class="col-xs-12 col-sm-5">
+      <div id="map" style="width: 100%; height: 600px;"></div>
     </div>
   </div>
 </div>
@@ -41,19 +39,19 @@
 
 
 <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
-    });
-  <% end %>
+<%= javascript_tag do %>
+$(document).ready(function() {
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: { id: 'map' } }, function() {
+markers = handler.addMarkers(<%= raw @hash.to_json %>);
+handler.bounds.extendWith(markers);
+handler.fitMapToBounds();
+if (markers.length == 0) {
+handler.getMap().setZoom(2);
+} else if (markers.length == 1) {
+handler.getMap().setZoom(14);
+}
+});
+});
+<% end %>
 <% end %>
