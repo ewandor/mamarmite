@@ -6,6 +6,8 @@ class CooksController < ApplicationController
     @hash = Gmaps4rails.build_markers(@cooks) do |cook, marker|
       marker.lat cook.latitude
       marker.lng cook.longitude
+      marker.infowindow render_to_string(partial: "/cooks/map_box", locals: { cook: cook })
+
     end
   end
 
