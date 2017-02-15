@@ -1,18 +1,21 @@
-<h1> Your cooker : </h1>
-<h1><%= @cook.nickname %> , <%= @cook.age %></h1>
-
-<h2>Ingredients:</h2>
-
-<div>
-  <% @cook.photos_recipes.each do |photo| %>
+<div class="cover">
+  <div class="speciality">
+      <% @cook.photos_recipes.each do |photo| %>
+          <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+      <% end %>
+  </div>
+  <div class="location">
+    <% @cook.photos_location.each do |photo| %>
       <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
-  <% end %>
+     <% end %>
+  </div>
 </div>
+<div class="summary">
+<h1> Your cooker : </h1>
+<h2><%= @cook.nickname %> , <%= @cook.age %></h2>
+</div>
+<div class="details">
 
-<div>
-  <% @cook.photos_location.each do |photo| %>
-      <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
-  <% end %>
 </div>
 
 
