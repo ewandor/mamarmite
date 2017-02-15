@@ -1,42 +1,35 @@
-<h1>Cooks#index</h1>
-<p>Find me in app/views/cooks/index.html.erb</p>
-
-<div class="map-search">
-  <!-- la barre de criteres -->
-  <div class="menu-bar"></div>
-  <!-- les vignettes -->
-  <div class="side-bar">
-    <div class="side-bar-header">
-      <div>
-        <span>
-          Choisissez votre recette
-        </span>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        Filters 
       </div>
-      <div> <%= @cooks.count %> marmittes à Paris </div>
-    </div>
-    <div class="wrapper-cards">
-
-    <div class="container">
-      <div class="row">
-        <% @cooks.each do |cook| %>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <!-- insert <div class="card"> -->
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('assets/1.jpg');">
-                <div class="card-category"><%= cook.speciality %></div>
-                <div class="card-description">
-                  <h2> <%= cook.nickname %></h2>
-                </div>
-                <%= image_tag "user.jpg", class: "card-user avatar" %>
-                <%= link_to "", cook_path(cook), class: "card-link" %>
-              </div>
-            </div>
-        <% end %>
-      </div>
-    </div>
-
     </div>
   </div>
 </div>
-  <!-- la map -->
-  <div> </div>
+
+
+<div class="wrapper_index">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8">
+      <% @cooks.each do |cook| %>
+        <div class="col-xs-12 col-sm-6">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= %>');">
+            <div class="card-category"><%= cook.speciality %></div>
+            <div class="card-description">
+              <h2>Chez <%= cook.nickname %></h2>
+              <p><%= cook.motto %></p>
+            </div>
+            <%= image_tag current_user.facebook_picture_url, class: 'card-user avatar' %>
+            <%= link_to "", cook_path(cook), class: 'card-link' %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        Maps
+      </div>
+    </div>
+  </div>
 </div>
