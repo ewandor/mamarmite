@@ -135,31 +135,5 @@ l.cooker_photo_url = "http://res.cloudinary.com/mamarmite/image/upload/v14871657
 l.location_photo_urls = ["http://res.cloudinary.com/mamarmite/image/upload/v1487169327/images-10_xn1nxf.jpg"]
 l.save!
 
-m = Cook.new(speciality: "French", address: "22 rue de la paix, Paris", home_style: "Appartment",
-  age: 60, capacity: 5, nickname: "Coco", motto: "La vraie cuisine est une forme d'art. Un cadeau à partager.", price: 74,
-  )
-
-m.recipe_photo_urls = ["https://cloudinary.com/console/media_library#/dialog/image/upload/Carpaccio-de-Saint-Jacques-delice-et-cuisine_ufvbnz"]
-m.cooker_photo_url = "http://res.cloudinary.com/mamarmite/image/upload/v1487165780/Image_uploaded_from_iOS_1_dzakio.jpg"
-m.location_photo_urls = ["http://res.cloudinary.com/mamarmite/image/upload/v1487169327/images-11_az3tog.jpg"]
-m.save!
-
-n = Cook.new(speciality: "Moroccan", address: "33 rue des francsbourgeois, Paris", home_style: "Appartment",
-  age: 60, capacity: 7, nickname: "Hend", motto: "Cuisine & Parce
-La cuisine est le plus ancien des arts parce que Adam naquit à jeun.", price: 23,
-  )
-n.recipe_photo_urls = ["https://cloudinary.com/console/media_library#/dialog/image/upload/Kafteji-800x600_kqw4ju"]
-n.cooker_photo_url = "http://res.cloudinary.com/mamarmite/image/upload/v1487165784/Image_uploaded_from_iOS_ultabo.jpg"
-n.location_photo_urls = ["http://res.cloudinary.com/mamarmite/image/upload/v1487169327/images-11_az3tog.jpg"]
-n.save!
-
-o = Cook.new(speciality: "Chinese", address: "32 rue des francsbourgeois, Paris", home_style: "Appartment",
-  age: 40, capacity: 8, nickname: "Kai-Li", motto: "On doit mettre tout son coeur dans la cuisine.", price: 64,
-  )
-
-o.recipe_photo_urls = ["http://res.cloudinary.com/mamarmite/image/upload/v1487158974/images-1_voeoag.jpg"]
-o.cooker_photo_url = "http://res.cloudinary.com/mamarmite/image/upload/v1487165780/Image_uploaded_from_iOS_1_dzakio.jpg"
-o.location_photo_urls = ["http://res.cloudinary.com/mamarmite/image/upload/v1487169327/images-12_vdpojn.jpg"]
-o.save!
 
 
