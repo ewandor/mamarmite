@@ -1,5 +1,15 @@
-.image_pic_show {
+.cooker-img-show {
 	height: 80vh;
+}
+
+.recipe-img-show {
+  height: 40vh;
+  width: 20vh;
+}
+
+.location-img-show {
+  height: 40vh;
+  width: 20vh;
 }
 
 .card-cooker {
@@ -11,4 +21,52 @@
 .card-cooker-id {
   margin-left: 15px;
   padding: 15px;
+  max-width: 400px;
 }
+
+#banner-show {
+  position:relative;
+}
+
+#button-photos-show {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+}
+
+.summary {
+  color: $green;
+  border-bottom: thin solid #BBBABE;
+  padding-bottom: 20px;
+}
+
+.tabs-header-show {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px 0 10px;
+  margin: 30px;
+}
+
+.header-summary-show {
+  color: $green;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.header-summary-show:hover {
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.fa {
+  font-size: 50px;
+  padding: 15px;
+}
+
+
+
+
+
+
+

@@ -1,77 +1,84 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),
+<div class="banner" id="banner-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),
 url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')">
   <div class="card-cooker">
     <div class="card-cooker-img">
-      <%= cl_image_tag(@cook.cooker_photo.path, crop: :fill, class: 'image_pic_show') %>
+      <%= cl_image_tag(@cook.cooker_photo.path, crop: :fill, class: 'cooker-img-show') %>
     </div>
     <div class="card-cooker-id">
-      <h2> Your cooker : </h2>
       <h3><%= @cook.nickname %> , <%= @cook.age %></h3>
       <h4>Speciality : <b><%= @cook.speciality %></b></h4>
-      <h4>Home style: <b><%= @cook.home_style %></b></h4>
-      <h4>Kitchen capacity: <b><%= @cook.capacity %></b></h4>
-      <h4>My motto: <b><%= @cook.motto %></b></h4>
-      <h4>Price: <b><%= @cook.price %> Euros</b></h4>
-      <h4>Address: <b><%= @cook.address %></b></h4>
+      <h4> <em>"<%= @cook.motto %>"</em></h4>
+    </div>
+  </div>
+  <button data-toogle="modal" data-target="#sign-up" class="btn btn-primary" id = "button-photos-show"> Voir les photos </button>
+  <div class="modal fade" id="sign-up">
+  </div>
+</div>
+
+<div class="summary">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8">
+        <div class="tabs-header-show">
+          <%= link_to "Présentation", "#", class: "header-summary-show" %>
+          <%= link_to "Commentaires", "#", class: "header-summary-show" %>
+          <%= link_to "L'hôte", "#", class: "header-summary-show" %>
+          <%= link_to "Emplacement", "#", class: "header-summary-show" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-8">
+        <div class="summary-icons">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-2 text-center">
+                <i class="fa fa-home" aria-hidden="true"></i>
+              </div>
+              <div class="col-xs-2 text-center">
+                <i class="fa fa-users" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-2 text-center">
+                <b><%= @cook.home_style %></b>
+              </div>
+              <div class="col-xs-2 text-center">
+                <b><%= @cook.capacity %> marmittes</b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-
-
-
-<!--     <div class="container">
-      <div class="row">
-        <div class="col-xs-6">
-          <%= cl_image_tag(@cook.cooker_photo.path, crop: :fill, class: 'image_pic_show') %>
-        </div>
-        <div class="col-xs-6">
-          <div class="card-cooker-desc text-center">
-            <h2> Your cooker : </h2>
-            <h3><%= @cook.nickname %> , <%= @cook.age %></h3>
-            <h4>Speciality : <b><%= @cook.speciality %></b></h4>
-            <h4>Home style: <b><%= @cook.home_style %></b></h4>
-            <h4>Kitchen capacity: <b><%= @cook.capacity %></b></h4>
-            <h4>My motto: <b><%= @cook.motto %></b></h4>
-            <h4>Price: <b><%= @cook.price %> Euros</b></h4>
-            <h4>Address: <b><%= @cook.address %></b></h4>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-
-
-
-<div class="summary">
-</div>
 <div class="details">
+  <h4>Price: <b><%= @cook.price %> Euros</b></h4>
 </div>
 <div class="reviews">
 </div>
 <div class="map-show">
+  <h4>Address: <b><%= @cook.address %></b></h4>
 </div>
-<div class="other-cooks">
+
+
+
+
+
+<div>
+  <!-- a ajouter slide show sur le bouton link -->
+  <% @cook.recipe_photos.each do |photo| %>
+    <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill, class: 'recipe-img-show' %>
+  <% end %>
+  <% @cook.location_photos.each do |photo| %>
+    <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill, class: 'location-img-show' %>
+  <% end %>
 </div>
 
 
 
 
 
-<div class="wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-      <div style="float: right;">
-        <% @cook.recipe_photos.each do |photo| %>
-        <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
-        <% end %>
-        <% @cook.location_photos.each do |photo| %>
-        <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
-        <% end %>
-        </div>
-        </div>
-    </div>
-  </div>
-</div>
 
