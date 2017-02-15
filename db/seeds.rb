@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # require 'nokogiri'
 # require 'json'
-# require 'open-uri'
+require 'open-uri'
 
 # url_starters = "http://www.delice-et-cuisine.com/recettes-cuisine/entrees/"
 
@@ -30,6 +30,11 @@
 
 Cook.destroy_all
 
-Cook.create!(speciality: "French", address_street: "58 domaine saint-hugues", address_town: "Grenoble", zipcode: "38120", home_style: "House", age: 22, capacity: 5, nickname: "Le Gros Ju", motto: "Plus c'est gras plus c'est bon", price: 20)
+c = Cook.new(speciality: "French", address_street: "58 domaine saint-hugues",
+  address_town: "Grenoble", zipcode: "38120", home_style: "House",
+  age: 22, capacity: 5, nickname: "Le Gros Ju", motto: "Plus c'est gras plus c'est bon", price: 20,
+  )
 
+c.photos_home_url = "http://res.cloudinary.com/mamarmite/image/upload/v1487094993/tajine-el-bey-800x600_suitnr.jpg"
 
+c.save!
