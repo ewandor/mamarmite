@@ -44,7 +44,7 @@
 <row name="speciality" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="address_street" null="1" autoincrement="0">
+<row name="address" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="type of space" null="1" autoincrement="0">
@@ -72,13 +72,10 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
-<row name="address_town" null="1" autoincrement="0">
+<row name="photos_location" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="zipcode" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="photo_location" null="1" autoincrement="0">
+<row name="photo_cooker" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
@@ -124,9 +121,6 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="password" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="photo_profile" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
