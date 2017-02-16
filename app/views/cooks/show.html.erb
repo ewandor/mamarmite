@@ -1,47 +1,32 @@
 <div class="banner" id="banner-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),
 url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')">
+
   <div class="card-cooker">
+
     <div class="card-cooker-img">
       <%= cl_image_tag(@cook.cooker_photo.path, crop: :fill, class: 'cooker-img-show') %>
     </div>
+
     <div class="card-cooker-id">
       <h3><%= @cook.nickname %> , <%= @cook.age %></h3>
       <h4>Speciality : <b><%= @cook.speciality %></b></h4>
       <h4> <em>"<%= @cook.motto %>"</em></h4>
     </div>
+
   </div>
 
+<!-- slider-1 -->
+<!-- <button type="button" class="btn" data-toggle="modal" data-target="#myModal" data-local="#myCarousel">Demo</button> -->
+ <!-- slider-2 -->
+ <button type="button" class="btn btn-primary btn-photos-show" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+<!-- <ul class="nav nav-pills nav-stacked">
+  <li><a href="#lightbox" data-toggle="modal">Open Lightbox</a></li>
+</ul> -->
+ <%= render "shared/slider2" %>
 
-  <button type="button" class="btn btn-primary btn-lg button-photos-show" data-toggle="modal" data-target="#img-carousel">
-   Voir les photos
- </button>
-
- <!-- Modal -->
-  <div class="modal fade" id="img-carousel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-
-        <div class="owl-carousel">
-          <!-- a ajouter slide show sur le bouton link -->
-        <% @cook.recipe_photos.each do |photo| %>
-          <div>
-            <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
-          </div>
-        <% end %>
-        <% @cook.location_photos.each do |photo| %>
-          <div>
-             <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
-          </div>
-        <% end %>
-        </div>
-
-      </div>
-    </div>
-  </div>
 </div>
-
-
-
 
 <div class="summary">
   <div class="container">
@@ -125,7 +110,10 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
         }
       });
 
-      $(".owl-carousel").owlCarousel();
+      $('.modal-body').slick({
+        setting-name: setting-value
+      });
+
     });
   <% end %>
 <% end %>
@@ -134,7 +122,18 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
 
 
 
-
+  <!-- a ajouter slide show sur le bouton link -->
+  <% @cook.recipe_photos.each do |photo| %>
+    <div>
+      <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+    </div>
+  <% end %>
+  <% @cook.location_photos.each do |photo| %>
+    <div>
+       <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+    </div>
+  <% end %>
+  </div>
 
 
 
