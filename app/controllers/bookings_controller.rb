@@ -8,11 +8,11 @@ class BookingsController < ApplicationController
 	def create
 		@booking = Booking.new(booking_params)
 		@booking.user = current_user
-		cook = Cook.find(params[:cook_id])
-		@booking.cook = cook
-		if @booking.save 
-  		redirect_to 'cooks#index' # redirect to index for now
-  	else 
+		@cook = Cook.find(params[:cook_id])
+		@booking.cook = @cook
+		if @booking.save
+  		redirect_to cook_path(@cook) # redirect to index for now later on dashboard
+  	else
   		render :new
   	end
   end
@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
 
   def update
   	@booking = Booking.update(booking_params)
-  	redirect_to 'cooks#index' # redirect to index for now
+  	redirect_to cook_path(@cook) # redirect to index for now later on dashboard
   end
 
 
@@ -37,3 +37,4 @@ class BookingsController < ApplicationController
   	params.require(:booking).permit(:starts_at, :foodies_number, :accepted)
   end
 end
+

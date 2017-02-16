@@ -1,3 +1,86 @@
-.image_pic_show {
+.cooker-img-show {
 	height: 80vh;
 }
+
+.recipe-img-show {
+  height: 40vh;
+  width: 20vh;
+}
+
+.location-img-show {
+  height: 40vh;
+  width: 20vh;
+}
+
+.card-cooker {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card-cooker-id {
+  margin-left: 15px;
+  padding: 15px;
+  max-width: 400px;
+}
+
+#banner-show {
+  position:relative;
+}
+
+
+.btn-photos-show {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+}
+
+.summary {
+  color: $green;
+  border-bottom: thin solid #BBBABE;
+  padding-bottom: 20px;
+}
+
+.tabs-header-show {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px 0 10px;
+  margin: 30px;
+}
+
+.header-summary-show {
+  color: $green;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.header-summary-show:hover {
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.fa {
+  font-size: 50px;
+  padding: 15px;
+}
+
+// #book-form {
+//   position: fixed;
+// }
+
+#book-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 2px;
+  background-color: rgba(60,63,64,0.9);
+  padding: 20px;
+}
+
+
+
+
+
+
+
