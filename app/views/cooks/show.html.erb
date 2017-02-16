@@ -6,12 +6,13 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
     <%= cl_image_tag(@cook.cooker_photo.path, crop: :fill, class: 'cooker-img-show') %>
   </div>
 
-
   <div class="card-cooker-id">
     <h3><%= @cook.nickname %> , <%= @cook.age %></h3>
     <h4>Speciality : <b><%= @cook.speciality %></b></h4>
     <h4> <em>"<%= @cook.motto %>"</em></h4>
   </div>
+
+</div>
 
 </div>
 
@@ -80,32 +81,7 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
 
 
 <% content_for(:after_js) do %>
-<<<<<<< HEAD
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      $('.datepickerrr').datepicker({
-       format: "dd/mm/yyyy",
-       weekStart: 1,
-       todayBtn: "linked",
-       language: "fr",
-       todayHighlight: true
-    });
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map-show' } }, function() {
-        markers = handler.addMarkers(<%= raw @cook_hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
 
-
-    });
-  <% end %>
-=======
 <%= javascript_tag do %>
 $(document).ready(function() {
 
@@ -131,7 +107,7 @@ handler.getMap().setZoom(14);
 
 });
 <% end %>
->>>>>>> master
+
 <% end %>
 
 
