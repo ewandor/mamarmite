@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6">
+			<h3>My bookings</h3>
+			<% current_user.bookings.each do |booking| %>
+			<div class="my_bookings">
+				Nickname: <b><%= booking.cook.nickname %></b>
+				Speciality: <b><%= booking.cook.speciality %></b>
+				Date: <b><%= booking.starts_at %></b>
+				there are <b><%= booking.foodies_number %></b> hosts
+				Status : <b><%= booking.accepted ? "accepted" : "not accepted" %></b>
+			</div>
+			<% end %>
+		</div>
+		<div class="col-xs-6">
+			<h3>Pending clients</h3>
+			
+		</div>
+	</div>
+</div>
+
+
+
+
+

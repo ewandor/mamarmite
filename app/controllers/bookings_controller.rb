@@ -1,16 +1,16 @@
 class BookingsController < ApplicationController
-	before_action :set_booking, only: [:edit, :update]
+  before_action :set_cook, only: [:new, :create]
+  before_action :set_booking, only: [ :accept, :decline ]
 
-	def new
-		@booking = Booking.new
-	end
+  def new
+    @booking = Booking.new
+  end
 
-	def create
-		@booking = Booking.new(booking_params)
-		@booking.user = current_user
-		@cook = Cook.find(params[:cook_id])
-		@booking.cook = @cook
-		if @booking.save
+  def create
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.cook = @cook
+    if @booking.save
   		redirect_to cook_path(@cook) # redirect to index for now later on dashboard
   	else
   		render :new
@@ -25,16 +25,29 @@ class BookingsController < ApplicationController
   	redirect_to cook_path(@cook) # redirect to index for now later on dashboard
   end
 
+  def accept
+    @booking.accepted = true
+    @booking.save
+    redirect_to user_path(current_user)   
+  end
+  
+  def decline
+    @booking.accepted = false
+    @booking.save
+    redirect_to user_path(current_user)   
+  end
 
   private
 
 
-  def set_booking
-  	@booking = Booking.find(params[:id])
-  end
-
   def booking_params
-  	params.require(:booking).permit(:starts_at, :foodies_number, :accepted)
+  	params.require(:booking).permit(:starts_at, :foodies_number, :accepted, :cook_id, :user_id )
+  end
+  def set_cook
+    @cook = Cook.find(params[:cook_id])
+  end
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 end
 
