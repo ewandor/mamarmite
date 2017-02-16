@@ -55,6 +55,7 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
           </div>
           <%= simple_form_for([@cook, @booking]) do |f| %>
             <%= f.input :foodies_number %>
+            <%= f.input :starts_at%>
             <%= f.button :submit %>
           <% end %>
         </div>

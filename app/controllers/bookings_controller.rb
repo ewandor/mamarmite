@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
 		@cook = Cook.find(params[:cook_id])
 		@booking.cook = @cook
 		if @booking.save
-      # raise
+
   		redirect_to cook_path(@cook) # redirect to index for now later on dashboard
   	else
   		render :new
