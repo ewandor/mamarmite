@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
 		@booking.cook = @cook
 		if @booking.save
   		redirect_to cook_path(@cook) # redirect to index for now later on dashboard
+
   	else
   		render :new
   	end

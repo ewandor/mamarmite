@@ -2,18 +2,33 @@
   height: calc(100vh - 70px);
   display: flex;
   align-items: center;
+  h2 {
+    color: #6dcdc2;
+    text-decoration: none;
+  }
+  p {
+    color: #6dcdc2;
+    text-decoration: none;
+  }
 }
 
 .social-btn {
   color: #666666;
   &:hover {
-    color: orange;
+    color: #6dcdc2;
     text-decoration: none;
   }
 }
 
+.fa-facebook {
+  font-size: 30px
+}
 
 
+h2 {
+    color: #6dcdc2;
+    text-decoration: none;
+}
 
 // display: flex;
 // justify-content: center;

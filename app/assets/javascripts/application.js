@@ -7,4 +7,5 @@
 //= require underscore
 //= require gmaps/google
 //= require bootstrap-datepicker
+//= require src/js/jquery.swipebox
 //= require_tree .
