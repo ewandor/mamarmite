@@ -62,7 +62,7 @@
 <row name="motto" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="photos_recipes" null="1" autoincrement="0">
+<row name="recipe_photos" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="price" null="1" autoincrement="0">
@@ -72,10 +72,10 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
-<row name="photos_location" null="1" autoincrement="0">
+<row name="location_photos" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="photo_cooker" null="1" autoincrement="0">
+<row name="cooker_photo" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
