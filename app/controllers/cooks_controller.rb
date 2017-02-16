@@ -11,6 +11,7 @@ class CooksController < ApplicationController
 
   def show
     @cook = Cook.find(params[:id])
+    @booking = Booking.new
     @cook_hash = Gmaps4rails.build_markers(@cook) do |cook, marker|
       marker.lat cook.latitude
       marker.lng cook.longitude

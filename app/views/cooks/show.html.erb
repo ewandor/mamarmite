@@ -42,7 +42,7 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
     <div class="row">
       <div class="col-xs-12 col-sm-8">
         <div class="tabs-header-show">
-          <%= link_to "Présentation", "#", class: "header-summary-show" %>
+          <%= link_to "Présentation", "#summary-icons", class: "header-summary-show" %>
           <%= link_to "Commentaires", "#", class: "header-summary-show" %>
           <%= link_to "Emplacement", "#map-show", class: "header-summary-show" %>
         </div>
@@ -53,8 +53,8 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
             <div> <%= @cook.price %> Euros </div>
             <div> par Marmitte </div>
           </div>
-          <%= simple_form_for(@cook) do |f| %>
-            <%= f.input :speciality %>
+          <%= simple_form_for([@cook, @booking]) do |f| %>
+            <%= f.input :foodies_number %>
             <%= f.button :submit %>
           <% end %>
         </div>
@@ -62,7 +62,7 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
     </div>
     <div class="row">
       <div class="col-xs-8">
-        <div class="summary-icons">
+        <div id="summary-icons">
           <div class="container">
             <div class="row">
               <div class="col-xs-2 text-center">
@@ -98,7 +98,7 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
   <%= javascript_tag do %>
     $(document).ready(function() {
       var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
+      handler.buildMap({ internal: { id: 'map-show' } }, function() {
         markers = handler.addMarkers(<%= raw @cook_hash.to_json %>);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
