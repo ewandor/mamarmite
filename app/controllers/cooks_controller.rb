@@ -13,7 +13,12 @@ class CooksController < ApplicationController
 
   def show
     @cook = Cook.find(params[:id])
-    @cook_coordinates = { lat: @cook.latitude, lng: @cook.longitude }
+    @booking = Booking.new
+    @cook_hash = Gmaps4rails.build_markers(@cook) do |cook, marker|
+      marker.lat cook.latitude
+      marker.lng cook.longitude
+    end
+
   end
 
   def new
@@ -41,7 +46,7 @@ class CooksController < ApplicationController
   private
 
   def cook_params
-    params.require(:cook).permit(:speciality, :address, :home_style, :age, :capacity, :nickname, :motto, :price, :photo_cooker, photos_recipes: [], photos_locations: [])
+    params.require(:cook).permit(:speciality, :address, :home_style, :age, :capacity, :nickname, :motto, :price, :cooker_photo, recipe_photos: [], location_photos: [])
   end
 
   def set_cook
