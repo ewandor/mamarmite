@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.cook = @cook
     if @booking.save
-  		redirect_to cook_path(@cook) # redirect to index for now later on dashboard
+  		redirect_to user_path(current_user) # redirect to index for now later on dashboard
 
   	else
   		render :new
@@ -27,14 +27,16 @@ class BookingsController < ApplicationController
   end
 
   def accept
-    @booking.accepted = true
-    @booking.save
+    booking = @booking
+    booking.accepted = "accepted"
+    booking.save
     redirect_to user_path(current_user)   
   end
   
   def decline
-    @booking.accepted = false
-    @booking.save
+    booking = @booking
+    booking.accepted = "declined"
+    booking.save
     redirect_to user_path(current_user)   
   end
 

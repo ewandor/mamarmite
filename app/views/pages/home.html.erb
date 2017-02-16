@@ -5,8 +5,8 @@
 		<p>Eat at home, away</p>
 	</div>
 	<div class='search-box'>
-		<form class='search-form'>
-			<input class='form-control text-center' placeholder='Type your search...' type='text' style="font-size: 1.4em;color: #36D1C4">
+		<form class='search-form' action="cooks">
+			<input class='form-control text-center' placeholder='Type your search...' type='text' style="font-size: 1.4em;color: #36D1C4" name="search">
 			<button class='btn btn-link search-btn search_btn'>
 				<i class='glyphicon glyphicon-search' style="left: -1px;"></i>
 			</button>
@@ -21,6 +21,7 @@
 		<div class="row" style="margin-bottom: 10px;">
 			<div class="col-xs-12 text-center">
 				<button class="btn btn-default tags_btn" type="submit">tags</button>
+				<%= link_to "Italian", cooks_path(speciality: "Italian") %>
 				<button class="btn btn-default tags_btn" type="submit">tags</button>
 				<button class="btn btn-default tags_btn" type="submit">tags</button>
 				<button class="btn btn-default tags_btn" type="submit">tags</button>
