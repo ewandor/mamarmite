@@ -24,6 +24,7 @@ gem 'omniauth-facebook'
 gem "geocoder"
 gem "coffee-rails"
 gem "gmaps4rails"
+gem 'owlcarousel-rails'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
@@ -34,7 +35,7 @@ end
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
-  
+
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
