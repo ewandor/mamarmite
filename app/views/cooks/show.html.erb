@@ -1,5 +1,5 @@
 
-<div class="banner" id="banner-show" style="background-image: linear-gradient(-225deg, rgba(252,201,123,0.2) 0%, rgba(252,201,123,0.2)  50%),
+<div class="banner" id="banner-show" style="background-image: linear-gradient(-225deg, rgba(252,201,123,0.2) 0%, rgba(252,201,123,0.2)  80%),
 url('<%= cl_image_path @cook.recipe_photos.first[:public_id], crop: :fit %>')">
 
 <div class="card-cooker">
@@ -8,8 +8,9 @@ url('<%= cl_image_path @cook.recipe_photos.first[:public_id], crop: :fit %>')">
   </div>
 
   <div class="card-cooker-id">
-    <h3><%= @cook.nickname %> , <%= @cook.age %></h3>
-    <h4>Speciality : <b><%= @cook.speciality %></b></h4>
+    <h3><%= @cook.nickname %> </h3>
+    <h4> Speciality : <b><%= @cook.speciality %></b></h4>
+    <h4> <b><%= @cook.age %></b> years old</h4>
     <h4> <em>"<%= @cook.motto %>"</em></h4>
 
   </div>
@@ -27,54 +28,61 @@ url('<%= cl_image_path @cook.recipe_photos.first[:public_id], crop: :fit %>')">
 <div class="summary">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-8">
-        <div class="tabs-header-show">
-          <%= link_to "Présentation", "#summary-icons", class: "header-summary-show" %>
-          <%= link_to "Commentaires", "#", class: "header-summary-show" %>
-          <%= link_to "Emplacement", "#map-show", class: "header-summary-show" %>
 
+      <div class="col-xs-8">
+        <div id="summary-icons">
+          <div class="container">
+
+            <div class="row">
+              <div class="col-xs-4 text-center">
+                <i class="fa fa-home fa-tall"  aria-hidden="true"></i>
+              </div>
+              <div class="col-xs-4 text-center">
+                <i class="fa fa-users fa-tall" aria-hidden="true"></i>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-4 text-center">
+                <b><%= @cook.home_style %></b>
+              </div>
+              <div class="col-xs-4 text-center">
+                <b> Until <%= @cook.capacity %> marmittes </b>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-4 text-center">
+                <b> Smoker </b>
+              </div>
+              <div class="col-xs-4 text-center">
+                <b> Cooking before ? </b>
+              </div>
+            </div>
+
+
+          </div>
         </div>
-
       </div>
+
       <div class="col-xs-12 col-sm-4">
         <div id="book-form">
           <div id="book-form-header">
             <div> <%= @cook.price %> Euros </div>
-            <div> par Marmitte </div>
+            <div> per offer </div>
           </div>
           <%= simple_form_for([@cook, @booking]) do |f| %>
           <%= f.input :foodies_number %>
           <%= f.input :starts_at, as: :string, input_html: { class: 'datepickerrr'} %>
-          <%= f.button :submit %>
+          <%= f.button :submit, class: "btn btn-primary" %>
           <% end %>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-8">
-        <div id="summary-icons">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-2 text-center">
-                <i class="fa fa-home fa-tall"  aria-hidden="true"></i>
-              </div>
-              <div class="col-xs-2 text-center">
-                <i class="fa fa-users fa-tall" aria-hidden="true"></i>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-2 text-center">
-                <b><%= @cook.home_style %></b>
-              </div>
-              <div class="col-xs-2 text-center">
-                <b><%= @cook.capacity %> marmittes</b>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-    </div>
+
+
+
   </div>
 </div>
 
