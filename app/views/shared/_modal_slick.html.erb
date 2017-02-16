@@ -12,7 +12,16 @@
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
       </div>
       <div class="modal-body">
-        ...
+                <% @cook.recipe_photos.each do |photo| %>
+          <div>
+            <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+          </div>
+        <% end %>
+        <% @cook.location_photos.each do |photo| %>
+          <div>
+             <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+          </div>
+        <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
