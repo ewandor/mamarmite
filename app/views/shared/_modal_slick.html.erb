@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+<button type="button" class="btn btn-primary btn-photos-show" data-toggle="modal" data-target="#myModal">
   Launch demo modal
 </button>
 
@@ -12,7 +12,7 @@
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
       </div>
       <div class="modal-body">
-                <% @cook.recipe_photos.each do |photo| %>
+        <% @cook.recipe_photos.each do |photo| %>
           <div>
             <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
           </div>

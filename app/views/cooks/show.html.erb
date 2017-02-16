@@ -101,30 +101,11 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
         }
       });
 
-      $('.modal-body').slick({
-
-      });
 
     });
   <% end %>
 <% end %>
 
-
-
-
-
-  <!-- a ajouter slide show sur le bouton link -->
-  <% @cook.recipe_photos.each do |photo| %>
-    <div>
-      <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
-    </div>
-  <% end %>
-  <% @cook.location_photos.each do |photo| %>
-    <div>
-       <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
-    </div>
-  <% end %>
-  </div>
 
 
 
