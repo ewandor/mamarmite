@@ -3,16 +3,17 @@
 url('<%= cl_image_path @cook.recipe_photos.first[:public_id], crop: :fit %>')">
 
 <div class="card-cooker">
-  <div class="card-cooker-img">
+  <div>
     <%= cl_image_tag(@cook.cooker_photo.path, crop: :fill, class: 'cooker-img-show') %>
   </div>
 
-  <div class="card-cooker-id">
-    <h3><%= @cook.nickname %> </h3>
-    <h4> Speciality : <b><%= @cook.speciality %></b></h4>
-    <h4> <b><%= @cook.age %></b> years old</h4>
-    <h4> <em>"<%= @cook.motto %>"</em></h4>
-
+  <div class="card-id-container">
+    <div class="card-cooker-id">
+      <h3><%= @cook.nickname %> </h3>
+      <h4> Speciality : <b><%= @cook.speciality %></b></h4>
+      <h4> <b><%= @cook.age %></b> years old</h4>
+      <h4> <em>"<%= @cook.motto %>"</em></h4>
+    </div>
   </div>
 
 </div>
@@ -21,7 +22,7 @@ url('<%= cl_image_path @cook.recipe_photos.first[:public_id], crop: :fit %>')">
   <img src="small/image.jpg" alt="image">
   </a>
  -->
-  <%= link_to "View photos", "#", class: "btn btn-primary btn-photos-show swipebox", id: "gallery" %>
+  <%= link_to "View more", "#", class: "btn btn-primary btn-green-round btn-photos-show swipebox", id: "gallery" %>
 
 </div>
 
@@ -68,13 +69,12 @@ url('<%= cl_image_path @cook.recipe_photos.first[:public_id], crop: :fit %>')">
       <div class="col-xs-12 col-sm-4">
         <div id="book-form">
           <div id="book-form-header">
-            <div> <%= @cook.price %> Euros </div>
-            <div> per offer </div>
+             <%= @cook.price %> € / Foodies
           </div>
           <%= simple_form_for([@cook, @booking]) do |f| %>
           <%= f.input :foodies_number %>
           <%= f.input :starts_at, as: :string, input_html: { class: 'datepickerrr'} %>
-          <%= f.button :submit, class: "btn btn-primary" %>
+          <%= f.button :submit, class: "btn btn-primary btn-green-round" %>
           <% end %>
         </div>
       </div>
