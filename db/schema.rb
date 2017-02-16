@@ -54,10 +54,8 @@ ActiveRecord::Schema.define(version: 20170215150640) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "address"
-
     t.float    "latitude"
     t.float    "longitude"
-
     t.index ["user_id"], name: "index_cooks_on_user_id", using: :btree
   end
 
