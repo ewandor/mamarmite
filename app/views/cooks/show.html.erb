@@ -2,10 +2,10 @@
 url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')">
 
   <div class="card-cooker">
-
     <div class="card-cooker-img">
       <%= cl_image_tag(@cook.cooker_photo.path, crop: :fill, class: 'cooker-img-show') %>
     </div>
+
 
     <div class="card-cooker-id">
       <h3><%= @cook.nickname %> , <%= @cook.age %></h3>
@@ -18,9 +18,6 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
 <!-- slider-1 -->
 <!-- <button type="button" class="btn" data-toggle="modal" data-target="#myModal" data-local="#myCarousel">Demo</button> -->
  <!-- slider-2 -->
- <button type="button" class="btn btn-primary btn-photos-show" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
 <!-- <ul class="nav nav-pills nav-stacked">
   <li><a href="#lightbox" data-toggle="modal">Open Lightbox</a></li>
 </ul> -->
@@ -36,6 +33,7 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
           <%= link_to "Présentation", "#summary-icons", class: "header-summary-show" %>
           <%= link_to "Commentaires", "#", class: "header-summary-show" %>
           <%= link_to "Emplacement", "#map-show", class: "header-summary-show" %>
+
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
@@ -75,6 +73,7 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>
@@ -84,13 +83,16 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
 </div>
 
 <!--   <h4>Address: <b><%= @cook.address %></b></h4> -->
+
 <div class="col-xs-8 col-xs-offset-2 text-center">
   <div id="map-show"  style="width: 100%; height: 600px;"></div>
 </div>
 
+
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function() {
+
       $('.datepickerrr').datepicker({
        format: "dd/mm/yyyy",
        weekStart: 1,
@@ -98,6 +100,7 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
        language: "fr",
        todayHighlight: true
     });
+
       var handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map-show' } }, function() {
         markers = handler.addMarkers(<%= raw @cook_hash.to_json %>);
@@ -110,30 +113,16 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
         }
       });
 
+
       $('.modal-body').slick({
         setting-name: setting-value
       });
+
 
     });
   <% end %>
 <% end %>
 
-
-
-
-
-  <!-- a ajouter slide show sur le bouton link -->
-  <% @cook.recipe_photos.each do |photo| %>
-    <div>
-      <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
-    </div>
-  <% end %>
-  <% @cook.location_photos.each do |photo| %>
-    <div>
-       <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
-    </div>
-  <% end %>
-  </div>
 
 
 
