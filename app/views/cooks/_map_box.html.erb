@@ -1,0 +1,7 @@
+<div class="map_box">
+	<%= cl_image_tag cook.cooker_photo.path, class: 'card-user-index avatar' %>
+	<h4>Chez <%= cook.nickname %></h4>
+	<p>Speciality: <b><%= cook.speciality %></b></p>
+	<p><%= cook.address %></p>
+	<%= link_to "Details", cook_path(cook), target: :blank, class: "btn btn-info" %>
+</div>
