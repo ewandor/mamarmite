@@ -10,31 +10,37 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
       <h4> <em>"<%= @cook.motto %>"</em></h4>
     </div>
   </div>
-  <button data-toogle="modal" data-target="#img-carousel" class="btn btn-primary" id = "button-photos-show"> Voir les photos </button>
-  <div class="modal fade" id="img-carousel">
-    <div class="owl-carousel">
-    <!-- a ajouter slide show sur le bouton link -->
-      <% @cook.recipe_photos.each do |photo| %>
-        <div>
-          <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+
+
+  <button type="button" class="btn btn-primary btn-lg button-photos-show" data-toggle="modal" data-target="#img-carousel">
+   Voir les photos
+ </button>
+
+ <!-- Modal -->
+  <div class="modal fade" id="img-carousel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="owl-carousel">
+          <!-- a ajouter slide show sur le bouton link -->
+        <% @cook.recipe_photos.each do |photo| %>
+          <div>
+            <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+          </div>
+        <% end %>
+        <% @cook.location_photos.each do |photo| %>
+          <div>
+             <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+          </div>
+        <% end %>
         </div>
-      <% end %>
-      <% @cook.location_photos.each do |photo| %>
-        <div>
-          <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
-        </div>
-      <% end %>
+
+      </div>
     </div>
   </div>
 </div>
 
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      $(".owl-carousel").owlCarousel();
-    });
-  <% end %>
-<% end %>
+
 
 
 <div class="summary">
