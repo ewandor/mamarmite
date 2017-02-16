@@ -16,6 +16,12 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
 
 </div>
 
+<!--   <a href="big/image.jpg" class="swipebox" title="My Caption">
+  <img src="small/image.jpg" alt="image">
+  </a>
+ -->
+  <%= link_to "View photos", "#", class: "btn btn-primary btn-photos-show swipebox", id: "gallery" %>
+
 </div>
 
 <div class="summary">
@@ -107,6 +113,14 @@ handler.getMap().setZoom(2);
 handler.getMap().setZoom(14);
 }
 });
+
+$( '#gallery' ).click( function( e ) {
+  e.preventDefault();
+  $.swipebox( [
+    { href:"<%= image_path('Escalope_de_poulet_gratinee.jpg')%>" },
+    { href:"<%= image_path('Escalope_de_poulet_gratinee.jpg')%>" }
+  ] );
+} );
 
 });
 <% end %>

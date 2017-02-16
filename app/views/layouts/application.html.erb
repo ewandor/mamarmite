@@ -9,7 +9,6 @@
   <%= action_cable_meta_tag %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
 
-
 </head>
 <body>
   <%= render 'shared/navbar' %>
@@ -24,6 +23,9 @@
   <%= javascript_include_tag 'application' %>
   <%= cloudinary_js_config %>
   <%= yield(:after_js) %>
+
+  <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
+
 
 </body>
 </html>
