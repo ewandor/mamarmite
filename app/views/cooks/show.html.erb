@@ -1,6 +1,6 @@
 
-<div class="banner" id="banner-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),
-url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')">
+<div class="banner" id="banner-show" style="background-image: linear-gradient(-225deg, rgba(252,201,123,0.2) 0%, rgba(252,201,123,0.2)  50%),
+url('<%= cl_image_path @cook.recipe_photos.first[:public_id], crop: :fit %>')">
 
 <div class="card-cooker">
   <div class="card-cooker-img">
@@ -94,14 +94,6 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
 <%= javascript_tag do %>
 $(document).ready(function() {
 
-$('.datepickerrr').datepicker({
-format: "dd/mm/yyyy",
-weekStart: 1,
-todayBtn: "linked",
-language: "fr",
-todayHighlight: true
-});
-
 var handler = Gmaps.build('Google');
 handler.buildMap({ internal: { id: 'map-show' } }, function() {
 markers = handler.addMarkers(<%= raw @cook_hash.to_json %>);
@@ -117,9 +109,9 @@ handler.getMap().setZoom(14);
 $( '#gallery' ).click( function( e ) {
   e.preventDefault();
   $.swipebox( [
-    { href:"<%= image_path('Escalope_de_poulet_gratinee.jpg')%>" },
-    { href:"<%= image_path('Escalope_de_poulet_gratinee.jpg')%>" }
-  ] );
+
+    { href:"<%= cl_image_path @cook.recipe_photos[0].path %>" },
+    { href:"<%= cl_image_path @cook.location_photos[0].path %>"}  ] );
 } );
 
 });
