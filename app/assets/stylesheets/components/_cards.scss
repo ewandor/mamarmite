@@ -5,11 +5,17 @@
   color: white;
   position: relative;
   border-radius: 5px;
+  margin-bottom: 1em;
 }
 .card-user {
   position: absolute;
   right: 10px;
   top: 10px;
+}
+.card-user-index {
+    position: absolute;
+    right: 14px;
+    top: 0px;
 }
 .card-category {
   position: absolute;

@@ -47,7 +47,7 @@
 <row name="address" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="type of space" null="1" autoincrement="0">
+<row name="home_style" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="age" null="1" autoincrement="0">
