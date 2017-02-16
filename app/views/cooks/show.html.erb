@@ -55,7 +55,7 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
           </div>
           <%= simple_form_for([@cook, @booking]) do |f| %>
             <%= f.input :foodies_number %>
-            <%= f.input :starts_at%>
+            <%= f.input :starts_at, as: :string, input_html: { class: 'datepickerrr'} %>
             <%= f.button :submit %>
           <% end %>
         </div>
@@ -93,11 +93,20 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
 </div>
 
 <!--   <h4>Address: <b><%= @cook.address %></b></h4> -->
-<div id="map-show" style="width: 100%; height: 600px;"></div>
+<div class="col-xs-8 col-xs-offset-2 text-center">
+  <div id="map-show"  style="width: 100%; height: 600px;"></div>
+</div>
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function() {
+      $('.datepickerrr').datepicker({
+       format: "dd/mm/yyyy",
+       weekStart: 1,
+       todayBtn: "linked",
+       language: "fr",
+       todayHighlight: true
+    });
       var handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map-show' } }, function() {
         markers = handler.addMarkers(<%= raw @cook_hash.to_json %>);
@@ -109,6 +118,8 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
           handler.getMap().setZoom(14);
         }
       });
+
+      $(".owl-carousel").owlCarousel();
     });
   <% end %>
 <% end %>
