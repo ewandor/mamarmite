@@ -87,7 +87,7 @@
 #book-form {
   // position: fixed;
   border: 2px solid $green;
-  padding: 4px;
+  padding: 15px;
   border-radius: 25px;
   margin-top: 50px;
 }
@@ -104,6 +104,12 @@
   border-radius: 50px;
   // padding-top: 50px;
   // margin-top: 50px;
+}
+
+.form-height-higher {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 18px;
 }
 
 

@@ -72,15 +72,15 @@ url('<%= cl_image_path @cook.recipe_photos.first[:public_id], crop: :fit %>')">
              <%= @cook.price %> € / Foodies
           </div>
           <%= simple_form_for([@cook, @booking]) do |f| %>
-          <%= f.input :foodies_number %>
-          <%= f.input :starts_at, as: :string, input_html: { class: 'datepickerrr'} %>
-          <%= f.button :submit, class: "btn btn-primary btn-green-round" %>
+          <%= f.input :foodies_number, label_html: {class: "form-height-higher"} %>
+          <%= f.input :starts_at, as: :string, input_html: { class: "datepickerrr form-height-higher"}, label_html: {class: "form-height-higher"} %>
+          <%= f.button :submit, class: "btn btn-primary btn-green-round"%>
           <% end %>
         </div>
       </div>
     </div>
 
-
+,
 
 
   </div>
