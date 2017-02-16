@@ -6,7 +6,6 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
     <%= cl_image_tag(@cook.cooker_photo.path, crop: :fill, class: 'cooker-img-show') %>
   </div>
 
-
   <div class="card-cooker-id">
     <h3><%= @cook.nickname %> , <%= @cook.age %></h3>
     <h4>Speciality : <b><%= @cook.speciality %></b></h4>
@@ -14,8 +13,6 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
   </div>
 
 </div>
-
-
 
 </div>
 
@@ -84,6 +81,7 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
 
 
 <% content_for(:after_js) do %>
+
 <%= javascript_tag do %>
 $(document).ready(function() {
 
@@ -109,6 +107,7 @@ handler.getMap().setZoom(14);
 
 });
 <% end %>
+
 <% end %>
 
 
