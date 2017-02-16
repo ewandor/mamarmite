@@ -1,10 +1,30 @@
-<%= simple_form_for @cook do |f| %>
-  <%= f.input :speciality %>
-  <%= f.input :nickname %>
-  <%= f.input :price %>
-  <%= f.input :address %>
-  <%= f.input :cooker_photo, as: :attachinary %>
-  <%= f.input :recipe_photos, as: :attachinary %>
-  <%= f.input :location_photos, as: :attachinary %>
-  <%= f.submit "add a cook", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <div class="row">
+  <div class="col-xs-12 col-sm-4 col-sm-offset-4 text-center">
+    <h2>Describe your cooking offer</h2>
+
+    <div class="form-inputs">
+      <%= simple_form_for @cook do |f| %>
+      <%= f.input :speciality %>
+      <%= f.input :nickname %>
+      <%= f.input :price %>
+      <%= f.input :address %>
+      </div>
+
+      <div class="list-inline-new">
+        <%= f.input :cooker_photo, as: :attachinary %>
+        <%= f.input :recipe_photos, as: :attachinary %>
+        <%= f.input :location_photos, as: :attachinary %>
+      </div>
+
+      <div space>
+        <div class="form-actions">
+        <%= f.submit "Add a cook", class: "btn navbar-wagon-button" %>
+        <% end %>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
