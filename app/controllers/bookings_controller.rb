@@ -10,9 +10,9 @@ class BookingsController < ApplicationController
 		@booking.user = current_user
 		cook = Cook.find(params[:cook_id])
 		@booking.cook = cook
-		if @booking.save 
+		if @booking.save
   		redirect_to 'cooks#index' # redirect to index for now
-  	else 
+  	else
   		render :new
   	end
   end
