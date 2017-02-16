@@ -15,15 +15,6 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
 
   </div>
 
-<!-- slider-1 -->
-<!-- <button type="button" class="btn" data-toggle="modal" data-target="#myModal" data-local="#myCarousel">Demo</button> -->
- <!-- slider-2 -->
- <button type="button" class="btn btn-primary btn-photos-show" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
-<!-- <ul class="nav nav-pills nav-stacked">
-  <li><a href="#lightbox" data-toggle="modal">Open Lightbox</a></li>
-</ul> -->
  <%= render "shared/modal_slick" %>
 
 </div>
@@ -111,7 +102,7 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
       });
 
       $('.modal-body').slick({
-        setting-name: setting-value
+
       });
 
     });
