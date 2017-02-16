@@ -10,20 +10,53 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
       <h4> <em>"<%= @cook.motto %>"</em></h4>
     </div>
   </div>
-  <button data-toogle="modal" data-target="#sign-up" class="btn btn-primary" id = "button-photos-show"> Voir les photos </button>
-  <div class="modal fade" id="sign-up">
+  <button data-toogle="modal" data-target="#img-carousel" class="btn btn-primary" id = "button-photos-show"> Voir les photos </button>
+  <div class="modal fade" id="img-carousel">
+    <div class="owl-carousel">
+    <!-- a ajouter slide show sur le bouton link -->
+      <% @cook.recipe_photos.each do |photo| %>
+        <div>
+          <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+        </div>
+      <% end %>
+      <% @cook.location_photos.each do |photo| %>
+        <div>
+          <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      $(".owl-carousel").owlCarousel();
+    });
+  <% end %>
+<% end %>
+
 
 <div class="summary">
   <div class="container">
     <div class="row">
-      <div class="col-xs-8">
+      <div class="col-xs-12 col-sm-8">
         <div class="tabs-header-show">
           <%= link_to "Présentation", "#", class: "header-summary-show" %>
           <%= link_to "Commentaires", "#", class: "header-summary-show" %>
-          <%= link_to "L'hôte", "#", class: "header-summary-show" %>
-          <%= link_to "Emplacement", "#", class: "header-summary-show" %>
+          <%= link_to "Emplacement", "#map-show", class: "header-summary-show" %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div id="book-form">
+          <div id="book-form-header">
+            <div> <%= @cook.price %> Euros </div>
+            <div> par Marmitte </div>
+          </div>
+          <%= simple_form_for(@cook) do |f| %>
+            <%= f.input :speciality %>
+            <%= f.button :submit %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -54,28 +87,36 @@ url('<%= cl_image_path @cook.location_photos.first[:public_id], crop: :fit %>')"
   </div>
 </div>
 
-<div class="details">
-  <h4>Price: <b><%= @cook.price %> Euros</b></h4>
-</div>
+
 <div class="reviews">
 </div>
-<div class="map-show">
-  <h4>Address: <b><%= @cook.address %></b></h4>
-</div>
 
+<!--   <h4>Address: <b><%= @cook.address %></b></h4> -->
+<div id="map-show" style="width: 100%; height: 600px;"></div>
 
-
-
-
-<div>
-  <!-- a ajouter slide show sur le bouton link -->
-  <% @cook.recipe_photos.each do |photo| %>
-    <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill, class: 'recipe-img-show' %>
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @cook_hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
   <% end %>
-  <% @cook.location_photos.each do |photo| %>
-    <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill, class: 'location-img-show' %>
-  <% end %>
-</div>
+<% end %>
+
+
+
+
+
+
 
 
 

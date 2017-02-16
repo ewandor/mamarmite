@@ -7,4 +7,5 @@
 //= require underscore
 //= require gmaps/google
 //= require bootstrap-datepicker
+//= require owl.carousel
 //= require_tree .
