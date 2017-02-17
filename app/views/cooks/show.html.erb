@@ -3,7 +3,7 @@
 url('<%= cl_image_path @cook.recipe_photos.first[:public_id], crop: :fit %>')">
 
 <div class="card-cooker">
-  <div>
+  <div >
     <%= cl_image_tag(@cook.cooker_photo.path, crop: :fill, class: 'cooker-img-show') %>
   </div>
 
