@@ -122,10 +122,11 @@ f = Cook.new(speciality: "Italian", address: "67 rue de l'ardoise, Paris", home_
   age: 45, capacity: 2, nickname: "Giulia", motto: "Bonne cuisine et bon vin, c'est le paradis sur terre.", price: 70,
   )
 
+
 f.user = ben
-f.recipe_photo_urls = ["http://res.cloudinary.com/mamarmite/image/upload/v1487165197/Italian_3_a2tqvs.jpg"]
+f.recipe_photo_urls = ["http://res.cloudinary.com/mamarmite/image/upload/v1487164196/grid-cell-8256-1384892528-7_qq89yj.jpg"]
 f.cooker_photo_url = "http://res.cloudinary.com/mamarmite/image/upload/v1487336425/Italian_woman_2_x4mk8b.jpg"
-f.location_photo_urls = ["https://cloudinary.com/console/media_library#/dialog/image/upload/k3_ci77rn "]
+f.location_photo_urls = ["http://res.cloudinary.com/mamarmite/image/upload/r_0/v1487320938/k1_bbx6e6.jpg"]
 f.save!
 
 g = Cook.new(speciality: "Indian", address: "120 avenue de Saint Exupery, Paris", home_style: "Appartment",
