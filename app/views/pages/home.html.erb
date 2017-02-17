@@ -20,11 +20,22 @@
 		</div>
 		<div class="row" style="margin-bottom: 10px;">
 			<div class="col-xs-12 text-center" style="margin-bottom: 1em;">
-				<%= link_to "Italian", cooks_path(speciality: "Italian"), class: 'tags_btn tags_italian' %>
-				<%= link_to "French", cooks_path(speciality: "French"), class: 'tags_btn tags_french' %>
-				<%= link_to "Moroccan", cooks_path(speciality: "Moroccan"), class: 'tags_btn tags_moroccan' %>
-				<%= link_to "Indian", cooks_path(speciality: "Indian"), class: 'tags_btn tags_indian' %>	
-				<%= link_to "Chinese", cooks_path(speciality: "Chinese"), class: 'tags_btn tags_chinese' %>
+        <%= link_to cooks_path(speciality: "Italian") do %>
+          <%= cl_image_tag 'italian_flag_2_njg5vd.png' %>
+        <% end %>
+        <%= link_to cooks_path(speciality: "French") do %>
+          <%= cl_image_tag 'french_flag_2_plumos.png' %>
+        <% end %>
+        <%= link_to cooks_path(speciality: "Moroccan") do %>
+          <%= cl_image_tag 'morocco_flag_nplymo.png' %>
+        <% end %>
+        <%= link_to cooks_path(speciality: "Indian") do %>
+          <%= cl_image_tag 'Indian_flag_ofk3vn.png' %>
+        <% end %>
+        <%= link_to cooks_path(speciality: "Chinese") do %>
+          <%= cl_image_tag 'chinese_flag_x804ce.png' %>
+        <% end %>
+          <%= cl_image_tag 'israelite_flag_hzny8r.png' %>
 			</div>
 		</div>
 		<div>
