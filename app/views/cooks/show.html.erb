@@ -3,11 +3,11 @@
 url('<%= cl_image_path @cook.recipe_photos.first[:public_id], crop: :fit %>')">
 
 <div class="card-cooker">
-  <div>
+  <div >
     <%= cl_image_tag(@cook.cooker_photo.path, crop: :fill, class: 'cooker-img-show') %>
   </div>
 
-  <div class="card-id-container">
+  <div class="card-id-grey">
     <div class="card-cooker-id">
       <h3><%= @cook.nickname %> </h3>
       <h4> Speciality : <b><%= @cook.speciality %></b></h4>
@@ -131,7 +131,7 @@ url('<%= cl_image_path @cook.recipe_photos.first[:public_id], crop: :fit %>')">
   <div class="container map-container">
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
-        <h3 class="map-title-green text-center"> Where <%= @cook.nickname %> lives </h3>
+        <h3 class="map-title-grey text-center"> Where <%= @cook.nickname %> lives </h3>
         <div id="map-show"  style="width: 100%; height: 600px;"></div>
       </div>
     </div>
