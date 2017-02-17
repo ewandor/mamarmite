@@ -2,12 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <div class="col-sm-3">
-          <input type="text" placeholder="filters...">
-        </div>
-        <div class="col-sm-3"><input type="text" placeholder="filters..."></div>
-        <div class="col-sm-3"><input type="text" placeholder="filters..."></div>
-         <div class="col-sm-3"><input type="text" placeholder="filters..."></div>
+        <h3 class="text-center">List of cooks</h3>
       </div>
     </div>
   </div>
@@ -19,7 +14,6 @@
     <div class="col-xs-12 col-sm-7 marge_index">
       <% @cooks.each do |cook| %>
       <div class="col-xs-12 col-sm-6">
-
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cook.recipe_photos.first.path %>')">
           <div class="card-category"><%= cook.speciality %></div>
           <div class="card-description">

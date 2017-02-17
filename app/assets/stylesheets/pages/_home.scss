@@ -5,7 +5,7 @@
 
  .wrapper {
  	background-color: #eee;
- 	padding: 20px;
+ 	padding: 10px;
  }
 
  .wrapper_index {
@@ -57,11 +57,17 @@
  .tags_btn {
  	border-radius: 50px;
  	margin-right: 10px;
- 	border: 1px solid #00D6F5;
+ 	padding: 10px;
+ 	color: rgba(0, 0, 0, 0.74);
  }
 
  .tags_btn:hover {
- 	border: 1px solid #00D6F5;
+ 	text-decoration: none;
+ 	color: #222;
+ }
+
+ .tags_btn:hover {
+ 	border: 1px solid #36D1C4;
  }
 
  .search_btn {
@@ -75,6 +81,7 @@
  .div_decouvrir {
  	text-align: center;
  	margin-bottom: 3em;
+ 	margin-top: 1em;
  }
 
  .btn_decouvrir {
@@ -82,13 +89,13 @@
  	border: none;
  	padding: 10px 20px;
  	color: white;
- 	background: #777;
+ 	background: #36D1C4;
  }
 
  .btn_decouvrir:hover {
  	color: white;
  	text-decoration: none;
- 	border: 3px solid white;
+ 	border: 3px solid #A0EECC;
  }
 
  .card_home {
@@ -103,4 +110,36 @@
  	justify-content: space-between;
  	text-align: center;
  	margin-top: 3em;
+ }
+
+ .tags_italian {
+ 	background: url('http://res.cloudinary.com/mamarmite/image/upload/v1487327447/ITALIAN_FLAG_zccrnu.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -11px;
+ }
+
+ .tags_french {
+ 	background: url('http://res.cloudinary.com/mamarmite/image/upload/v1487327088/french_flag_donpfd.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -11px;
+ }
+ .tags_moroccan {
+ 	background: url('http://res.cloudinary.com/mamarmite/image/upload/v1487320977/drapeau-maroc-icone-4235-32_ngd2bc.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -22px;
+ }
+ .tags_indian {
+ 	background: url('http://res.cloudinary.com/mamarmite/image/upload/v1487320968/inde-icone-5193-48_hiqbsm.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -11px;
+ }
+ .tags_chinese {
+ 	background: url('http://res.cloudinary.com/mamarmite/image/upload/v1487320966/chine-icone-6133-32_lysd1o.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -11px;
  }

@@ -144,7 +144,7 @@ url('<%= cl_image_path @cook.recipe_photos.first[:public_id], crop: :fit %>')">
 $(document).ready(function() {
 
 var handler = Gmaps.build('Google');
-handler.buildMap({ internal: { id: 'map-show' } }, function() {
+handler.buildMap({ provider: { scrollwheel: false, zoomControl: true }, internal: {id: 'map-show'} }, function() {
 markers = handler.addMarkers(<%= raw @cook_hash.to_json %>);
 handler.bounds.extendWith(markers);
 handler.fitMapToBounds();

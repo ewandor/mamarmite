@@ -5,8 +5,8 @@
 		<p>Eat at home, away</p>
 	</div>
 	<div class='search-box'>
-		<form class='search-form'>
-			<input class='form-control text-center' placeholder='Type your search...' type='text' style="font-size: 1.4em;color: #36D1C4">
+		<form class='search-form' action="cooks">
+			<input class='form-control text-center' placeholder='Type your search...' type='text' style="font-size: 1.4em;color: #36D1C4" name="search">
 			<button class='btn btn-link search-btn search_btn'>
 				<i class='glyphicon glyphicon-search' style="left: -1px;"></i>
 			</button>
@@ -19,38 +19,31 @@
 			<%= link_to "Découvrir nos Mamarmites!", cooks_path, class: 'btn_decouvrir' %>
 		</div>
 		<div class="row" style="margin-bottom: 10px;">
-			<div class="col-xs-12 text-center">
-				<button class="btn btn-default tags_btn" type="submit">tags</button>
-				<button class="btn btn-default tags_btn" type="submit">tags</button>
-				<button class="btn btn-default tags_btn" type="submit">tags</button>
-				<button class="btn btn-default tags_btn" type="submit">tags</button>
-				<button class="btn btn-default tags_btn" type="submit">tags</button>
-				<button class="btn btn-default tags_btn" type="submit">tags</button>
-				<button class="btn btn-default tags_btn" type="submit">tags</button>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-12 text-center">
-				<button class="btn btn-default tags_btn" type="submit">tags</button>
-				<button class="btn btn-default tags_btn" type="submit">tags</button>
-				<button class="btn btn-default tags_btn" type="submit">tags</button>
-				<button class="btn btn-default tags_btn" type="submit">tags</button>
-				<button class="btn btn-default tags_btn" type="submit">tags</button>
+			<div class="col-xs-12 text-center" style="margin-bottom: 1em;">
+				<%= link_to "Italian", cooks_path(speciality: "Italian"), class: 'tags_btn tags_italian' %>
+				<%= link_to "French", cooks_path(speciality: "French"), class: 'tags_btn tags_french' %>
+				<%= link_to "Moroccan", cooks_path(speciality: "Moroccan"), class: 'tags_btn tags_moroccan' %>
+				<%= link_to "Indian", cooks_path(speciality: "Indian"), class: 'tags_btn tags_indian' %>	
+				<%= link_to "Chinese", cooks_path(speciality: "Chinese"), class: 'tags_btn tags_chinese' %>
 			</div>
 		</div>
 		<div>
-		<h2 class="text-center" style="margin-top: 1em;color: #777;">Top cookers</h2>
+			<h2 class="text-center" style="margin-top: 1em;color: #777;">Top cookers</h2>
 
 			<div class="row row_cards">
-				<div class="col-sm-3 card_home">
-					card1
+				<% @cooks.first(3).each do |cook| %>
+				<div class="col-xs-12 col-sm-3">
+					<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cook.recipe_photos.first.path %>')">
+						<div class="card-category"><%= cook.speciality %></div>
+						<div class="card-description">
+							<h2>Chez <%= cook.nickname %></h2>
+							<p><%= cook.motto %></p>
+						</div>
+						<%= cl_image_tag cook.cooker_photo.path, class: 'card-user avatar' %>
+						<%= link_to "", cook_path(cook), class: 'card-link' %>
+					</div>
 				</div>
-				<div class="col-sm-3 card_home">
-					card2
-				</div>
-				<div class="col-sm-3 card_home">
-					card3
-				</div>
+				<% end %>
 			</div>
 		</div>
 	</div>

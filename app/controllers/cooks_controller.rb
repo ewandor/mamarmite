@@ -3,11 +3,16 @@ class CooksController < ApplicationController
 
   def index
     @cooks = Cook.where.not(latitude: nil, longitude: nil)
+    @cooks = @cooks.where(speciality: params[:speciality]) if params[:speciality]
+    if params[:search] == ""
+      @cooks = Cook.where.not(latitude: nil, longitude: nil)
+    else
+      @cooks = @cooks.where(speciality: params[:search].capitalize) if params[:search]
+    end
     @hash = Gmaps4rails.build_markers(@cooks) do |cook, marker|
       marker.lat cook.latitude
       marker.lng cook.longitude
       marker.infowindow render_to_string(partial: "/cooks/map_box", locals: { cook: cook })
-
     end
   end
 

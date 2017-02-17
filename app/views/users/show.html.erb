@@ -1,25 +1,74 @@
-<div class="container">
-	<div class="row">
-		<div class="col-xs-6">
-			<h3>My bookings</h3>
-			<% current_user.bookings.each do |booking| %>
+<div class="container"><h2>Dashboard </h2></div>
+<div id="exTab3" class="container">	
+	<ul  class="nav nav-pills">
+		<li class="active">
+			<a  href="#1b" data-toggle="tab">My bookings</a>
+		</li>
+		<li><a href="#2b" data-toggle="tab">Pending clients</a>
+		</li>
+		<li><a href="#3b" data-toggle="tab">Accepted booking</a>
+		</li>
+		<li><a href="#4b" data-toggle="tab">Declined booking</a>
+		</li>
+	</ul>
+
+	<div class="tab-content clearfix">
+		<div class="tab-pane active" id="1b">
+			<% @user.bookings.each do |booking| %>
 			<div class="my_bookings">
 				Nickname: <b><%= booking.cook.nickname %></b>
 				Speciality: <b><%= booking.cook.speciality %></b>
 				Date: <b><%= booking.starts_at %></b>
+				Price: <b><%= booking.cook.price.to_i * booking.foodies_number.to_i %>$</b>
 				there are <b><%= booking.foodies_number %></b> hosts
-				Status : <b><%= booking.accepted ? "accepted" : "not accepted" %></b>
+				Status : <b><%= booking.accepted %></b>
 			</div>
 			<% end %>
 		</div>
-		<div class="col-xs-6">
-			<h3>Pending clients</h3>
+		<div class="tab-pane" id="2b">	
+			<div class="my_bookings">
+
+				<% @bookings_pending.each do |book| %>
+				<% if current_user.id == book.cook.user_id %>
+				<%= book.user.first_name %>
+				<%= book.cook.speciality %>
+				<%= link_to "Confirm booking", confirm_booking_path(book), method: :patch, class:'btn btn-success' %>
+				<%= link_to "Cancel booking", decline_booking_path(book), method: :put, class:'btn btn-danger' %>
+
+				<% end %>
+				<% end %>
+			</div>
 			
+		</div>
+		<div class="tab-pane" id="3b">	
+			<div class="my_bookings">
+				<ul style="list-style-type: none" >
+					<% @bookings_accepted.each do |book| %>
+					<% if current_user.id == book.cook.user_id %>
+					<li><%= book.user.first_name %></li>
+					<li><%= book.cook.speciality %></li>
+					<li><%= book.accepted %></li>
+					<% end %>
+					<% end %>
+				</ul>
+			</div>
+			
+		</div>
+		<div class="tab-pane" id="4b">
+			<div class="my_bookings">
+				<ul style="list-style-type: none;">
+					<% @bookings_declined.each do |book| %>
+					<% if current_user.id == book.cook.user_id %>
+					<li><%= book.user.first_name %></li>
+					<li><%= book.cook.speciality %></li>
+					<li><%= book.accepted %></li>
+					<% end %>
+					<% end %>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
-
-
 
 
 
