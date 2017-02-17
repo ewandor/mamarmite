@@ -25,16 +25,16 @@
 .cooker-img-show {
   height: 70vh;
   border-radius: 50%;
-  box-shadow: 2px 2px #ffffff;
+  border: 3px solid white;
 }
 
 
-.card-id-container {
-  background-color: #F6318C;
+.card-id-grey {
+  background-color: rgba(4, 4, 4, 0.41);
   margin: 30px;
   border-radius: 25px;
-  color: #FFFFFF;
-  box-shadow: 4px 4px #ffffff;
+  color: white;
+  border: 3px solid white;
 }
 
 #banner-show {
@@ -52,11 +52,12 @@
   border-radius: 30px;
   padding: 13px;
   font-weight: bold;
+  // border: 3px solid white;
+
 }
 
 .summary {
-  color: $green;
-  // border-bottom: thin solid #BBBABE;
+  color: rgba(50, 50, 50, 0.48) ;
   padding-bottom: 20px;
 }
 
@@ -120,13 +121,18 @@
   border-bottom: 2px solid $green;
 }
 
-.map-title-green {
-  color: $green;
+.map-title-grey {
+  color: rgba(50, 50, 50, 0.48);
+  font-weight: bold;
 }
 
 .map-container {
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+#map-show {
+  border: 3px solid black;
 }
 
 // .map-container-show {
