@@ -147,7 +147,7 @@ h.location_photo_urls = ["http://res.cloudinary.com/mamarmite/image/upload/r_0/v
 h.save!
 
 i = Cook.new(speciality: "Moroccan", address: "33 rue des petits fours, Paris", home_style: "Appartment",
-  age: 28, capacity: 10, nickname: "Taieb", motto: "L'amour ça se cuisine tous les jours.", price: 50,
+  age: 28, capacity: 10, nickname: "Rachida", motto: "L'amour ça se cuisine tous les jours.", price: 50,
   )
 i.user = lyor
 i.recipe_photo_urls = ["http://res.cloudinary.com/mamarmite/image/upload/v1487094991/kebbeh-epinards-noix-detc-800x600_hfuozr.png"]
