@@ -8,6 +8,8 @@
 		</li>
 		<li><a href="#3b" data-toggle="tab">Accepted booking</a>
 		</li>
+		<li><a href="#4b" data-toggle="tab">Declined booking</a>
+		</li>
 	</ul>
 
 	<div class="tab-content clearfix">
@@ -23,8 +25,7 @@
 			</div>
 			<% end %>
 		</div>
-		<div class="tab-pane" id="2b">
-			
+		<div class="tab-pane" id="2b">	
 			<div class="my_bookings">
 
 				<% @bookings_pending.each do |book| %>
@@ -39,20 +40,32 @@
 			</div>
 			
 		</div>
-		<div class="tab-pane" id="3b">
-			
+		<div class="tab-pane" id="3b">	
 			<div class="my_bookings">
 				<ul style="list-style-type: none" >
 					<% @bookings_accepted.each do |book| %>
-				<% if current_user.id == book.cook.user_id %>
-				<li><%= book.user.first_name %></li>
-				<li><%= book.cook.speciality %></li>
-				<li><%= book.accepted %></li>
+					<% if current_user.id == book.cook.user_id %>
+					<li><%= book.user.first_name %></li>
+					<li><%= book.cook.speciality %></li>
+					<li><%= book.accepted %></li>
 					<% end %>
 					<% end %>
 				</ul>
 			</div>
 			
+		</div>
+		<div class="tab-pane" id="4b">
+			<div class="my_bookings">
+				<ul style="list-style-type: none;">
+					<% @bookings_declined.each do |book| %>
+					<% if current_user.id == book.cook.user_id %>
+					<li><%= book.user.first_name %></li>
+					<li><%= book.cook.speciality %></li>
+					<li><%= book.accepted %></li>
+					<% end %>
+					<% end %>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>

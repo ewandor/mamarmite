@@ -1,6 +1,6 @@
 class Cook < ApplicationRecord
- geocoded_by :full_address
- after_validation :geocode, if: :full_address_changed?
+ geocoded_by :address
+ after_validation :geocode, if: :address_changed?
  has_many :bookings, dependent: :destroy
  belongs_to :user
  has_attachment :cooker_photo
@@ -18,12 +18,5 @@ class Cook < ApplicationRecord
   # validates :zipcode, presence: true
   # validates :address_street, :uniqueness => {:scope => [:address_town, :zipcode]}
 
-
-  def full_address
-    "#{address}, #{zip_code} #{city} #{ISO3166::Country[country].name}"
-  end
-   def full_address_changed?
-    address_changed? || zip_code_changed? || city_changed? || country_changed?
-  end
 end
 
