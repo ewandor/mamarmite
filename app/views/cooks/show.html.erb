@@ -128,16 +128,14 @@ url('<%= cl_image_path @cook.recipe_photos.first[:public_id], crop: :fit %>')">
 
 <!--   <h4>Address: <b><%= @cook.address %></b></h4> -->
 
-<div class="map-container-show text-center"">
-  <div class="container">
+  <div class="container map-container">
     <div class="row">
-      <div class="col-xs-9 col-xs-offset-1">
-        <h3 class="map-title-green"> Where <%= @cook.nickname %> lives </h3>
+      <div class="col-xs-8 col-xs-offset-2">
+        <h3 class="map-title-green text-center"> Where <%= @cook.nickname %> lives </h3>
         <div id="map-show"  style="width: 100%; height: 600px;"></div>
       </div>
     </div>
   </div>
-</div>
 
 
 <% content_for(:after_js) do %>

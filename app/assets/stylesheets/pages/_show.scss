@@ -58,7 +58,6 @@
   color: $green;
   // border-bottom: thin solid #BBBABE;
   padding-bottom: 20px;
-  height: 80vh;
 }
 
 .tabs-header-show {
@@ -123,6 +122,11 @@
 
 .map-title-green {
   color: $green;
+}
+
+.map-container {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 // .map-container-show {
