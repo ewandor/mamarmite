@@ -11,7 +11,7 @@
 	<div class="tab-content clearfix">
 		<div class="tab-pane active" id="1b">
 			<% current_user.bookings.each do |booking| %>
-			<div class="my_bookings">
+			<div class="col-xs-3 my_bookings">
 				Nickname: <b><%= booking.cook.nickname %></b>
 				<br>
 				Speciality: <b><%= booking.cook.speciality %></b>
@@ -27,7 +27,7 @@
 			<% end %>
 		</div>
 		<div class="tab-pane" id="2b">	
-			<div class="my_bookings">
+			<div class="col-xs-3 my_bookings">
 
 				<% @bookings_pending.each do |book| %>
 				<% if current_user.id == book.cook.user_id %>
