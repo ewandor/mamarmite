@@ -24,6 +24,7 @@ gem 'omniauth-facebook'
 gem "geocoder"
 gem "coffee-rails"
 gem "gmaps4rails"
+gem 'material_icons'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
